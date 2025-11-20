@@ -140,7 +140,7 @@ const TransporteModerno = () => {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true }} 
             className="text-center mb-20"
           >
             <p className="text-sm font-black tracking-widest text-emerald-600 uppercase mb-6">
