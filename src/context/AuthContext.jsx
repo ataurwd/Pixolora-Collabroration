@@ -8,7 +8,7 @@ import {
   signOut,
 } from "firebase/auth";
 
-import { auth } from "../firebase/Firebase";
+import { auth } from "./../firebase/Firebase";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const UserContext = createContext(null);
