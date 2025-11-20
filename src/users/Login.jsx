@@ -1,11 +1,16 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { FaGoogle, FaFacebookF, FaBox } from "react-icons/fa";
 import { MdTrackChanges, MdSecurity } from "react-icons/md";
 
 const Login = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-[#046838]/20 to-gray-900 relative overflow-hidden">
-      {/* Animated Background Orbs - তোমার কালার দিয়ে */}
+
+       <Helmet>
+        <title>Login | Logistics Dashboard</title>
+        <meta name="description" content="Log in to manage shipments and track logistics" />
+      </Helmet>
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#046838] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
         <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-[#FA921D] rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-blob animation-delay-2000"></div>
