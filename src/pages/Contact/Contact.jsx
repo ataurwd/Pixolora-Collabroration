@@ -56,7 +56,7 @@ const Contact = () => {
             <div
               className="absolute inset-0 bg-cover bg-center translate-y-[-100%] group-hover:translate-y-0 transition-all duration-500"
               style={{
-                backgroundImage: "url('https://i.ibb.co.com/LvJ5t68S/truck.jpg')",
+                backgroundImage: "url('https://i.ibb.co.com/Vp5TBqjp/blg1.webp')",
               }}
             ></div>
             <div className="absolute inset-0 bg-[#003B44]/70 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
@@ -79,7 +79,7 @@ const Contact = () => {
             <div
               className="absolute inset-0 bg-cover bg-center translate-y-[-100%] group-hover:translate-y-0 transition-all duration-500"
               style={{
-                backgroundImage: "url('https://i.ibb.co.com/vmdWgTcR/warehouse.jpg')",
+                backgroundImage: "url('https://i.ibb.co.com/Vp5TBqjp/blg1.webp')",
               }}
             ></div>
             <div className="absolute inset-0 bg-[#003B44]/70 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
