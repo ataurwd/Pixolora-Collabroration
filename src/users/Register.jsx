@@ -1,15 +1,127 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import { FaGoogle, FaFacebookF, FaTruck, FaCheckCircle, FaShieldAlt, FaTachometerAlt } from "react-icons/fa";
+import { UserContext } from '../context/AuthContext';
+import Swal from 'sweetalert2';
+import { useLocation, useNavigate } from "react-router-dom";
+import { updateProfile } from 'firebase/auth'; // <-- Added import
 
 const Register = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { createUser, setUser, googleLogin, user } = useContext(UserContext);
+
+  console.log(user.email)
+  // Google Login
+  const HandelGoogleLogin = () => {
+    googleLogin()
+      .then((result) => {
+        setUser(result.user);
+        console.log(result.user);
+        navigate(location?.state ? location.state : "/");
+        Swal.fire({
+          title: "Login Success!",
+          icon: "success",
+          timer: 1500,
+          showConfirmButton: false
+        });
+      })
+      .catch((error) => {
+        console.error("Google Login Error", error);
+        Swal.fire({
+          title: "Google Login Failed",
+          text: error.message,
+          icon: "error"
+        });
+      });
+  };
+
+  // Email/Password Registration
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const firstName = form.firstName.value.trim();
+    const lastName = form.lastName.value.trim();
+    const name = `${firstName} ${lastName}`.trim();
+    const email = form.email.value.trim();
+    const password = form.password.value;
+
+    // Password validation
+    if (password.length < 6) {
+      Swal.fire({
+        title: "Weak Password",
+        text: "Password must be at least 6 characters long",
+        icon: "error"
+      });
+      return;
+    }
+
+    const hasUpperCase = /[A-Z]/;
+    const hasLowerCase = /[a-z]/;
+
+    if (!hasUpperCase.test(password)) {
+      Swal.fire({
+        title: "Password Error",
+        text: "Password must contain at least one uppercase letter",
+        icon: "error"
+      });
+      return;
+    }
+
+    if (!hasLowerCase.test(password)) {
+      Swal.fire({
+        title: "Password Error",
+        text: "Password must contain at least one lowercase letter",
+        icon: "error"
+      });
+      return;
+    }
+
+    // Create user with Firebase Auth
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+
+        // Update profile with name (and optional photo)
+        return updateProfile(user, {
+          displayName: name,
+          // photoURL: "https://example.com/default-avatar.jpg" // optional
+        })
+        .then(() => {
+          // Update context/state
+          setUser({
+            ...user,
+            displayName: name
+          });
+
+          Swal.fire({
+            title: "Registration Successful!",
+            icon: "success",
+            timer: 1500,
+            showConfirmButton: false
+          });
+
+          navigate("/");
+        });
+      })
+      .catch((error) => {
+        console.error("Registration Error:", error);
+        Swal.fire({
+          title: "Registration Failed",
+          text: error.message || "Something went wrong",
+          icon: "error"
+        });
+      });
+  };
+
   return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 relative overflow-hidden">
-          
-       <Helmet>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 relative overflow-hidden">
+      <Helmet>
         <title>Register | Logistics Dashboard</title>
-        <meta name="description" content="Log in to manage shipments and track logistics" />
+        <meta name="description" content="Create your account and manage logistics seamlessly" />
       </Helmet>
+
       {/* Background Decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-96 h-96 bg-[#046838]/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
@@ -22,9 +134,10 @@ const Register = () => {
           {/* Left Side - Sign Up Form */}
           <div className="p-10 lg:p-16 flex flex-col justify-center">
             <div className="max-w-md mx-auto w-full">
+
               {/* Logo */}
-              <div className="flex items-center gap-3 mb-10">
-                <img className='w-1/2' src="https://i.ibb.co.com/7xjs7YjB/Expresur-02-1-removebg-preview.webp" alt="" />
+              <div Western="flex items-center gap-3 mb-10">
+                <img className='w-1/2' src="https://i.ibb.co.com/7xjs7YjB/Expresur-02-1-removebg-preview.webp" alt="Logo" />
               </div>
 
               <h2 className="text-4xl font-bold text-gray-800 mb-4">
@@ -34,34 +147,42 @@ const Register = () => {
                 Create your account and get full access to real-time tracking & logistics management.
               </p>
 
-              <form className="space-y-5">
+              <form className="space-y-5" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-2 gap-4">
                   <input
                     type="text"
+                    name="firstName"
                     placeholder="First Name"
+                    required
                     className="px-5 py-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#046838] focus:border-[#046838] transition"
                   />
                   <input
                     type="text"
+                    name="lastName"
                     placeholder="Last Name"
+                    required
                     className="px-5 py-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#046838] focus:border-[#046838] transition"
                   />
                 </div>
 
                 <input
                   type="email"
+                  name="email"
                   placeholder="Business Email"
+                  required
                   className="w-full px-5 py-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#046838] focus:border-[#046838] transition"
                 />
 
                 <input
                   type="password"
+                  name="password"
                   placeholder="Create Password"
+                  required
                   className="w-full px-5 py-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#046838] focus:border-[#046838] transition"
                 />
 
                 <div className="flex items-start gap-3">
-                  <input type="checkbox" id="terms" className="mt-1 rounded text-[#046838]" />
+                  <input type="checkbox" id="terms" required className="mt-1 rounded text-[#046838]" />
                   <label htmlFor="terms" className="text-sm text-gray-600">
                     I agree to the <a href="#" className="text-[#046838] font-medium hover:underline">Terms of Service</a> and <a href="#" className="text-[#046838] font-medium hover:underline">Privacy Policy</a>
                   </label>
@@ -87,11 +208,18 @@ const Register = () => {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
-                  <button className="flex items-center justify-center gap-3 py-3 border border-gray-300 rounded-xl hover:bg-gray-50 transition">
+                  <button
+                    type="button"
+                    onClick={HandelGoogleLogin}
+                    className="flex items-center justify-center gap-3 py-3 border border-gray-300 rounded-xl hover:bg-gray-50 transition"
+                  >
                     <FaGoogle className="text-red-500" />
                     <span className="font-medium">Google</span>
                   </button>
-                  <button className="flex items-center justify-center gap-3 py-3 border border-gray-300 rounded-xl hover:bg-gray-50 transition">
+                  <button
+                    type="button"
+                    className="flex items-center justify-center gap-3 py-3 border border-gray-300 rounded-xl hover:bg-gray-50 transition"
+                  >
                     <FaFacebookF className="text-blue-600" />
                     <span className="font-medium">Facebook</span>
                   </button>
@@ -107,7 +235,7 @@ const Register = () => {
             </div>
           </div>
 
-          {/* Right Side - Hero */}
+          {/* Right Side - Hero Section */}
           <div className="hidden lg:block relative bg-gradient-to-br from-[#046838] to-[#035230] p-16 text-white">
             <div className="max-w-lg">
               <h1 className="text-5xl font-bold mb-6 leading-tight">
@@ -151,7 +279,7 @@ const Register = () => {
 
               <div className="mt-12 flex items-center gap-4">
                 <div className="flex -space-x-3">
-                  {[1,2,3,4].map(i => (
+                  {[1, 2, 3, 4].map(i => (
                     <div key={i} className="w-12 h-12 rounded-full border-4 border-[#046838] bg-gray-300"></div>
                   ))}
                 </div>
