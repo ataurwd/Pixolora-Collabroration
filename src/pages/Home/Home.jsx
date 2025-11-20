@@ -3,6 +3,7 @@ import Hero from './Hero';
 import OceanFreigh from './OceanFreigh';
 import Transporte from './Transporte';
 import Form from './Form';
+import Conocenos from './Conocenos';
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
             <OceanFreigh/>
             <Transporte/>
             <Form/>
+            <Conocenos/>
         </div>
     );
 };
