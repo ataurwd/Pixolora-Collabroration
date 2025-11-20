@@ -3,60 +3,49 @@ import React from "react";
 const About = () => {
   return (
     <div className="w-full">
-
-      {/* =======================
-          HERO SECTION
-      ======================== */}
+      {/* ======================= HERO SECTION ======================== */}
       <section
-        className="w-[1350px] h-[667.09px] bg-cover bg-center relative mx-auto"
+        className="w-full h-[667px] bg-cover bg-center relative"
         style={{
-          backgroundImage: 'url("https://i.ibb.co.com/ks1KbJTF/bf2.webp")'
+          backgroundImage: 'url("https://i.ibb.co.com/ks1KbJTF/bf2.webp")',
         }}
       >
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-          <h1 className="text-white text-5xl font-bold">
-            Acerca De Nosotros
-          </h1>
+          <h1 className="text-white text-6xl font-bold">Acerca De Nosotros</h1>
         </div>
       </section>
 
-      {/* =======================
-          DETAILS SECTION
-      ======================== */}
-      <section className="w-full bg-[#DFF5FF] flex justify-center py-20">
-        <div className="w-[1350px] flex">
-
-          {/* LEFT SIDE — STAT CARDS */}
-          <div className="w-1/2 flex flex-col gap-10 pl-4">
-
-            {/* Card 1 */}
-            <div className="w-[260px] h-[260px] bg-[#F4F4F4] shadow-sm flex flex-col justify-center px-8">
+      {/* ======================= DETAILS SECTION ======================== */}
+      <section className="w-full bg-[#DFF5FF] py-20">
+        <div className="max-w-[1350px] mx-auto flex flex-row items-center justify-center px-10">
+          {/* LEFT SIDE — STAGGERED STAT CARDS */}
+          <div className="flex flex-col gap-12">
+            {/* Client Card (top one) */}
+            <div className="w-[320px] h-[300px] bg-[#FFFAF5] rounded-3xl shadow-md flex flex-col items-start justify-center pl-12">
               <img
-                src="/mnt/data/60ca0415-832b-4508-9233-77c3eadc82c3.png"
-                className="w-12 mb-6"
+                src="https://i.ibb.co/8XjY7mP/plane-modern-orange.png" // modern plane icon
                 alt="plane"
+                className="w-16 mb-6"
               />
-              <p className="text-sm font-medium text-gray-700">Client</p>
-              <h1 className="text-5xl font-bold">56+</h1>
+              <p className="text-sm font-semibold text-gray-600">Client</p>
+              <p className="text-6xl font-bold text-gray-900">56+</p>
             </div>
 
-            {/* Card 2 */}
-            <div className="w-[260px] h-[260px] bg-[#F4F4F4] shadow-sm flex flex-col justify-center px-8">
+            {/* Countries Card (lower one) */}
+            <div className="w-[320px] h-[300px] bg-[#FFFAF5] rounded-3xl shadow-md flex flex-col items-start justify-center pl-12 ml-20">
               <img
-                src="/mnt/data/60ca0415-832b-4508-9233-77c3eadc82c3.png"
-                className="w-12 mb-6"
+                src="https://i.ibb.co/0j0Z3hK/container-modern-orange.png" // modern container icon
                 alt="container"
+                className="w-16 mb-6"
               />
-              <p className="text-sm font-medium text-gray-700">Countries</p>
-              <h1 className="text-5xl font-bold">68+</h1>
+              <p className="text-sm font-semibold text-gray-600">Countries</p>
+              <p className="text-6xl font-bold text-gray-900">68+</p>
             </div>
-
           </div>
 
-          {/* RIGHT SIDE — TEXT */}
-          <div className="w-1/2 pl-20 pr-10 flex flex-col justify-center">
-
-            <h1 className="text-[44px] leading-tight font-semibold">
+          {/* RIGHT SIDE — TEXT BLOCK */}
+          <div className="ml-32 max-w-2xl">
+            <h1 className="text-5xl leading-[1.15] font-bold text-gray-900">
               Us we specialize in offer <br />
               solutions innovative of <br />
               <span className="text-[#FF9D23]">logistics.</span> <br />
@@ -64,9 +53,8 @@ const About = () => {
               unique of our customers.
             </h1>
 
-            <h2 className="mt-8 text-xl font-medium">About Us</h2>
-
-            <p className="mt-4 text-[17px] leading-relaxed text-gray-700">
+            <h2 className="mt-10 text-2xl font-semibold text-gray-800">About Us</h2>
+            <p className="mt-6 text-lg leading-relaxed text-gray-700">
               Logistics employs top professionals from diverse backgrounds,
               which only makes us stronger, and we couldn't be more proud to help
               you grow and optimize your business. Real Transport Inc. was founded
@@ -76,9 +64,7 @@ const About = () => {
               your shipment is completed on time. Our diverse backgrounds further
               strengthen our team.
             </p>
-
           </div>
-
         </div>
       </section>
     </div>
