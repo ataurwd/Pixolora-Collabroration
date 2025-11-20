@@ -23,31 +23,38 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Left: Logo */}
           <div className="flex items-center flex-1">
-            <Link to="/" className="text-2xl font-extrabold tracking-tight text-gray-900">
+            <Link
+              to="/"
+              className="text-2xl font-extrabold tracking-tight text-gray-900"
+            >
               {/* text-logo: pixel-perfect spacing */}
-              <img className="w-40" src="https://i.ibb.co.com/7xjs7YjB/Expresur-02-1-removebg-preview.webp" alt="" />
+              <img
+                className="w-40"
+                src="https://i.ibb.co.com/7xjs7YjB/Expresur-02-1-removebg-preview.webp"
+                alt=""
+              />
             </Link>
           </div>
 
           {/* Center: Menu - hidden on small */}
           <nav className="hidden md:flex md:space-x-8 md:flex-1 md:justify-center">
             <Link
-              to="/quotes"
+              to="/"
               className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-700 hover:text-indigo-600"
             >
-              Quotes
+              Home
             </Link>
             <Link
-              to="/shipments"
+              to="/About"
               className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-700 hover:text-indigo-600"
             >
-              Shipments
+              About
             </Link>
             <Link
-              to="/lockers"
+              to="/tracking-page"
               className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-700 hover:text-indigo-600"
             >
-              Lockers
+              Tracking Page
             </Link>
             <Link
               to="/contact"
@@ -93,25 +100,31 @@ export default function Navbar() {
           <div className="flex gap-2">
             <Link to="/login">
               <Button variant="outlined" color="primary">
-              Login
-            </Button></Link>
+                Login
+              </Button>
+            </Link>
             <Link to="/register">
               <Button variant="contained" color="primary">
-              Sign Up
-            </Button></Link>
+                Sign Up
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
 
       {/* Mobile off-canvas */}
       <div
-        className={`fixed inset-0 z-40 md:hidden transition-opacity ${mobileOpen ? "pointer-events-auto" : "pointer-events-none"}`}
+        className={`fixed inset-0 z-40 md:hidden transition-opacity ${
+          mobileOpen ? "pointer-events-auto" : "pointer-events-none"
+        }`}
         aria-hidden={!mobileOpen}
       >
         {/* overlay */}
         <div
           onClick={() => setMobileOpen(false)}
-          className={`absolute inset-0 bg-black/30 transition-opacity ${mobileOpen ? "opacity-100" : "opacity-0"}`}
+          className={`absolute inset-0 bg-black/30 transition-opacity ${
+            mobileOpen ? "opacity-100" : "opacity-0"
+          }`}
         />
 
         {/* panel */}
@@ -122,22 +135,73 @@ export default function Navbar() {
         >
           <div className="px-4 py-4 flex items-center justify-between border-b">
             <div className="text-lg font-semibold">Menu</div>
-            <button onClick={() => setMobileOpen(false)} aria-label="Close menu" className="p-2 rounded-md">
-              <svg className="h-6 w-6 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+            <button
+              onClick={() => setMobileOpen(false)}
+              aria-label="Close menu"
+              className="p-2 rounded-md"
+            >
+              <svg
+                className="h-6 w-6 text-gray-700"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
           </div>
 
           <nav className="px-4 py-6 space-y-4">
-            <Link to="/quotes" onClick={() => setMobileOpen(false)} className="block text-gray-800 font-medium">Quotes</Link>
-            <Link to="/shipments" onClick={() => setMobileOpen(false)} className="block text-gray-800 font-medium">Shipments</Link>
-            <Link to="/lockers" onClick={() => setMobileOpen(false)} className="block text-gray-800 font-medium">Lockers</Link>
-            <Link to="/tracking" onClick={() => setMobileOpen(false)} className="block text-gray-800 font-medium">Tracking</Link>
+            <Link
+              to="/quotes"
+              onClick={() => setMobileOpen(false)}
+              className="block text-gray-800 font-medium"
+            >
+              Quotes
+            </Link>
+            <Link
+              to="/shipments"
+              onClick={() => setMobileOpen(false)}
+              className="block text-gray-800 font-medium"
+            >
+              Shipments
+            </Link>
+            <Link
+              to="/lockers"
+              onClick={() => setMobileOpen(false)}
+              className="block text-gray-800 font-medium"
+            >
+              Lockers
+            </Link>
+            <Link
+              to="/tracking"
+              onClick={() => setMobileOpen(false)}
+              className="block text-gray-800 font-medium"
+            >
+              Tracking
+            </Link>
 
             <div className="pt-4 border-t">
-              <Link to="/dashboard" onClick={() => setMobileOpen(false)} className="block text-gray-700">Dashboard</Link>
-              <Link to="/profile" onClick={() => setMobileOpen(false)} className="block text-gray-700">Profile</Link>
+              <Link
+                to="/dashboard"
+                onClick={() => setMobileOpen(false)}
+                className="block text-gray-700"
+              >
+                Dashboard
+              </Link>
+              <Link
+                to="/profile"
+                onClick={() => setMobileOpen(false)}
+                className="block text-gray-700"
+              >
+                Profile
+              </Link>
             </div>
           </nav>
         </aside>
