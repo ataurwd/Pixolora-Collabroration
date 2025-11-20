@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import ErrorPage from "../components/ErrorPage";
 import Login from "../users/Login";
 import Register from "../users/Register";
+import Contact from './../pages/Contact/Contact';
 
 const Route = () => {
   const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const Route = () => {
         {
           path: "/register",
           element: <Register/>,
+        },
+        {
+          path: "/contact",
+          element: <Contact/>,
         }
       ],
     },
