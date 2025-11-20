@@ -1,9 +1,15 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { FaGoogle, FaFacebookF, FaTruck, FaCheckCircle, FaShieldAlt, FaTachometerAlt } from "react-icons/fa";
 
 const Register = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 relative overflow-hidden">
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 relative overflow-hidden">
+          
+       <Helmet>
+        <title>Register | Logistics Dashboard</title>
+        <meta name="description" content="Log in to manage shipments and track logistics" />
+      </Helmet>
       {/* Background Decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-96 h-96 bg-[#046838]/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
