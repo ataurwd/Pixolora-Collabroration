@@ -17,15 +17,14 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="w-full bg-white shadow-sm">
+    <header className="w-full bg-white shadow-sm max-w-[1400px] mx-auto">
       <div className=" mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Left: Logo */}
           <div className="flex items-center flex-1">
             <Link to="/" className="text-2xl font-extrabold tracking-tight text-gray-900">
               {/* text-logo: pixel-perfect spacing */}
-              <span className="inline-block align-middle">Ship</span>
-              <span className="inline-block align-middle text-[#046838] ">Flow</span>
+              <img className="w-40" src="https://i.ibb.co.com/7xjs7YjB/Expresur-02-1-removebg-preview.webp" alt="" />
             </Link>
           </div>
 
