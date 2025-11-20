@@ -50,10 +50,10 @@ export default function Navbar() {
               Lockers
             </Link>
             <Link
-              to="/tracking"
+              to="/contact"
               className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-700 hover:text-indigo-600"
             >
-              Tracking
+              Contact
             </Link>
           </nav>
 
@@ -91,12 +91,14 @@ export default function Navbar() {
             </div>
           </div> */}
           <div className="flex gap-2">
-            <Button variant="outlined" color="primary" href="/login">
+            <Link to="/login">
+              <Button variant="outlined" color="primary">
               Login
-            </Button>
-            <Button className="m-2" variant="outlined" color="primary" href="/register">
-              Register
-            </Button>
+            </Button></Link>
+            <Link to="/register">
+              <Button variant="contained" color="primary">
+              Sign Up
+            </Button></Link>
           </div>
         </div>
       </div>
