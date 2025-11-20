@@ -5,9 +5,11 @@ import Footer from '../components/Footer';
 
 const Layout = () => {
     return (
-        <div>
+        <div className='max-w-[1400px] mx-auto'>
             <Navbar />
-            <Outlet />
+            <div className='min-h-[calc(100vh-120px)]'>
+                <Outlet />
+            </div>
             <Footer/>
         </div>
     );
