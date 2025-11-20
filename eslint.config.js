@@ -22,6 +22,8 @@ export default defineConfig([
         sourceType: 'module',
       },
     },
+          'react/jsx-no-target-blank': 'off',
+      'react/prop-types': 'off',
     rules: {
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
