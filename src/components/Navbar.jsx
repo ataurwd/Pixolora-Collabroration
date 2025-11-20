@@ -1,3 +1,4 @@
+import Button from "@mui/material/Button";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -57,8 +58,7 @@ export default function Navbar() {
           </nav>
 
           {/* Right: Profile & Mobile Hamburger */}
-          <div className="flex items-center space-x-4">
-            {/* Desktop profile (hover shows dropdown) */}
+          {/* <div className="flex items-center space-x-4">
             <div className="relative hidden md:block" ref={profileRef}>
               <button
                 onMouseEnter={() => setProfileOpen(true)}
@@ -69,7 +69,6 @@ export default function Navbar() {
                 aria-expanded={profileOpen}
               >
                 <span className="sr-only">Open user menu</span>
-                {/* simple user icon */}
                 <div className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 text-gray-600">
                     <path fill="currentColor" d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5z" />
@@ -79,7 +78,6 @@ export default function Navbar() {
 
             </div>
 
-            {/* Mobile hamburger */}
             <div className="md:hidden">
               <button
                 onClick={() => setMobileOpen(true)}
@@ -91,6 +89,14 @@ export default function Navbar() {
                 </svg>
               </button>
             </div>
+          </div> */}
+          <div className="flex gap-2">
+            <Button variant="outlined" color="primary" href="/login">
+              Login
+            </Button>
+            <Button className="m-2" variant="outlined" color="primary" href="/register">
+              Register
+            </Button>
           </div>
         </div>
       </div>
