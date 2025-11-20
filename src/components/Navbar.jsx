@@ -6,7 +6,6 @@ export default function Navbar() {
   const [profileOpen, setProfileOpen] = useState(false);
   const profileRef = useRef(null);
 
-  // Close profile dropdown when clicking outside (desktop)
   useEffect(() => {
     function handleClick(e) {
       if (profileRef.current && !profileRef.current.contains(e.target)) {
@@ -18,15 +17,14 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="w-full bg-white shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="w-full bg-white shadow-sm max-w-[1400px] mx-auto">
+      <div className=" mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Left: Logo */}
           <div className="flex items-center flex-1">
             <Link to="/" className="text-2xl font-extrabold tracking-tight text-gray-900">
               {/* text-logo: pixel-perfect spacing */}
-              <span className="inline-block align-middle">Ship</span>
-              <span className="inline-block align-middle text-indigo-600">Flow</span>
+              <img className="w-40" src="https://i.ibb.co.com/7xjs7YjB/Expresur-02-1-removebg-preview.webp" alt="" />
             </Link>
           </div>
 
@@ -79,29 +77,6 @@ export default function Navbar() {
                 </div>
               </button>
 
-              {/* Dropdown - appears on hover or click */}
-              <div
-                onMouseEnter={() => setProfileOpen(true)}
-                onMouseLeave={() => setProfileOpen(false)}
-                className={`absolute right-0 mt-3 w-44 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white origin-top-right transform transition-all duration-150 ${
-                  profileOpen ? "opacity-100 scale-100" : "opacity-0 pointer-events-none scale-95"
-                }`}
-              >
-                <div className="py-1">
-                  <Link
-                    to="/dashboard"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
-                  >
-                    Dashboard
-                  </Link>
-                  <Link
-                    to="/profile"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
-                  >
-                    Profile
-                  </Link>
-                </div>
-              </div>
             </div>
 
             {/* Mobile hamburger */}
