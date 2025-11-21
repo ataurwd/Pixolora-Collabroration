@@ -245,7 +245,7 @@ const HomeContactMerged = () => {
               uppercase tracking-wide text-lg select-none z-50
             "
             style={{
-              zIndex: 50,
+              zIndex: 50,  
               clipPath:
                 "polygon(55%  2%, 63% 4%, 75% 12%, 84% 25%, 88% 38%, 88% 50%, 84% 63%, 75% 75%, 63% 84%, 50% 88%, 37% 84%, 25% 75%, 16% 63%, 12% 50%, 12% 38%, 16% 25%, 25% 12%, 37% 4%)",
             }}
