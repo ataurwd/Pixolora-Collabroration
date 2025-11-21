@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import HeroCarousel from "./HeroCarousel";
+import Marquee from "./Marquee";
 
 /**
  * Packaging.jsx (Adjusted markers)
@@ -102,7 +103,7 @@ export default function Packaging() {
       <div className="max-w-7xl mx-auto px-6">       
       
 
-    <HeroCarousel/>
+    <Marquee/>
 
         {/* MAIN: left circle + right map */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">

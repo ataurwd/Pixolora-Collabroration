@@ -7,6 +7,7 @@ import Conocenos from './Conocenos';
 import Packaging from './Packaging';
 import Testimonials from './testimonials';
 import HomContactText from './HomContactText';
+import CompleteFreight from './CompleteFreight';
 
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
             <Form/>
             <Conocenos/>
             <Packaging/>
+            <CompleteFreight/>
             <Testimonials/>
             <HomContactText/>
         </div>

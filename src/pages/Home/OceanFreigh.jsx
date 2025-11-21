@@ -1,4 +1,4 @@
-// OceanFreight.jsx – COMPACT MODERN MASTERPIECE
+// OceanFreight.jsx – COMPACT MODERN MASTERPIECE (UPDATED: equal card heights)
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -135,40 +135,87 @@ const OceanFreight = () => {
           </div>
         </div>
 
-        {/* BOTTOM 3 CARDS – SMALLER, TIGHTER, MODERN */}
-        <div className="mt-20">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Card 1 */}
-            <FadeUp delay={0.2}>
-              <motion.div whileHover={{ y: -12 }} className="group relative rounded-3xl overflow-hidden bg-white shadow-xl h-72">
-                <img src="https://images.pexels.com/photos/163785/pexels-photo-163785.jpeg?auto=compress&cs=tinysrgb&w=1260" alt="Ship" className="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
-                <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur rounded-2xl px-5 py-3 shadow-lg">
-                  <p className="font-bold text-[#02224D] text-sm">Headquater -</p>
-                  <p className="text-xs text-gray-600">4517 Washington Ave. Manchester,<br />Kentucky 39495</p>
-                </div>
-              </motion.div>
-            </FadeUp>
+       {/* BOTTOM 3 CARDS */}
+<div className="mt-20">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-            {/* Card 2 */}
-            <FadeUp delay={0.4}>
-              <motion.div whileHover={{ scale: 1.05 }} className="rounded-3xl bg-gradient-to-br from-[#00733C] to-[#004d26] flex flex-col items-center justify-center p-8 shadow-xl h-72">
-                <p className="text-7xl lg:text-8xl font-black text-white">40K<span className="text-5xl">+</span></p>
-                <p className="text-white/90 font-medium mt-2 text-sm lg:text-base">Cliente en todo el mundo</p>
-              </motion.div>
-            </FadeUp>
+    {/* Card 1 – Ship */}
+    <motion.div
+      whileHover={{ scale: 1.03 }}
+      className="relative h-72 rounded-3xl overflow-hidden bg-white"
+    >
+      <img
+        src="https://themexriver.com/wp/cargozen/wp-content/uploads/2025/04/pro2.webp"
+        className="w-full h-full object-cover"
+        alt=""
+      />
 
-            {/* Card 3 */}
-            <FadeUp delay={0.6}>
-              <motion.div whileHover={{ y: -12 }} className="group relative rounded-3xl bg-white shadow-xl overflow-hidden h-72">
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 bg-white/90 backdrop-blur-sm z-10">
-                  <p className="text-2xl lg:text-3 abondened font-black text-[#FF8A00]">Más rápido y confiable</p>
-                  <p className="text-[#02224D] font-medium mt-2 text-sm lg:text-base">Transportation services</p>
-                </div>
-                <img src="https://images.pexels.com/photos/245031/pexels-photo-245031.jpeg?auto=compress&cs=tinysrgb&w=1260" alt="Truck" className="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
-              </motion.div>
-            </FadeUp>
-          </div>
-        </div>
+      {/* Info Box */}
+      <div className="absolute bottom-5 left-5 bg-white rounded-xl p-4 shadow-md">
+        <p className="font-bold text-[#02224D] text-sm">Headquarters -</p>
+        <p className="text-xs text-gray-600">
+          4517 Washington Ave.<br />
+          Manchester, Kentucky 39495
+        </p>
+      </div>
+    </motion.div>
+
+    {/* Card 2 – Green Counter */}
+    <motion.div
+      whileHover={{ scale: 1.03 }}
+      className="h-72 rounded-3xl bg-[#046639] text-white p-10 flex flex-col justify-center"
+      style={{
+        clipPath: "polygon(0 0, 85% 0, 100% 20%, 100% 100%, 0 100%)"
+      }}
+    >
+      <h1 className="text-5xl font-black">40K+</h1>
+      <p className="mt-4 text-white/90 text-sm">Customer worldwide</p>
+    </motion.div>
+
+    {/* Card 3 – Text + Truck */}
+
+  {/* Truck image — styled to match screenshot */}
+<motion.div
+  whileHover={{ scale: 1.01 }}
+  className="relative h-72 rounded-3xl bg-white p-8 overflow-hidden"
+  style={{
+    clipPath: "polygon(0 0, 100% 0, 100% 80%, 90% 100%, 0 100%)"
+  }}
+>
+
+  <h3 className="text-xl md:text-2xl font-bold text-[#f88d1f] leading-tight z-20 relative">
+    Faster and more reliable <br />
+    Transportation services
+  </h3>
+
+  {/* Orange Circle Behind (LEFT side now) */}
+  <div
+    className="absolute left-10 bottom-10 w-28 h-28 rounded-full bg-[#FFB02C] z-10"
+  />
+
+  {/* Truck Image on LEFT */}
+  <motion.img
+    src="https://themexriver.com/wp/cargozen/wp-content/uploads/2025/04/truck1.webp"
+    alt="truck"
+    initial={{ x: -20, y: 10, opacity: 0 }}
+    whileInView={{ x: 0, y: -4, opacity: 1 }}
+    whileHover={{ x: -6, y: -10, scale: 1.02, rotate: -2 }}
+    viewport={{ once: true, amount: 0.6 }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    className="absolute bottom-0 left-0 w-48 md:w-64 object-contain pointer-events-none z-30 drop-shadow-2xl"
+    style={{
+      transformOrigin: "center left",
+      translate: "-10px 0px"
+    }}
+  />
+
+</motion.div>
+
+
+
+  </div>
+</div>
+
       </div>
     </section>
   );
@@ -178,7 +225,7 @@ const Feature = ({ Icon, title }) => (
   <div className="flex items-center gap-5">
     <div className="w-14 h-14 rounded-3xl bg-white shadow-lg flex-center border border-gray-200">
       <Icon className="w-8 h-8 text-[#00A45A]" />
-    </	div>
+    </div>
     <p className="text-2xl lg:text-3xl font-black text-[#02224D]">{title}</p>
   </div>
 );

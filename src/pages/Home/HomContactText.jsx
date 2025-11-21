@@ -3,16 +3,12 @@ import { motion } from "framer-motion";
 
 /**
  * HomContactText - adjusted fonts for title & numbers
- * keep a lower z-index so the contact stage can overlap it
+ * plain white background (no map)
  */
 const HomContactText = () => {
   return (
     <section
-      className="mb-0 w-full bg-cover bg-center py-24 relative z-10 translate-y-6 md:translate-y-12 -mb-12 md:-mb-20"
-      style={{
-        backgroundImage:
-          "url('https://themexriver.com/wp/cargozen/wp-content/uploads/2025/04/map.svg')",
-      }}
+      className="mb-0 w-full bg-white py-24 relative z-10 translate-y-6 md:translate-y-12 -mb-12 md:-mb-20"
     >
       <div className="max-w-6xl mx-auto text-center px-4">
         {/* TOP COUNTER */}
@@ -209,7 +205,7 @@ const HomeContactMerged = () => {
   }
 
   return (
-    <div className="relative w-full flex flex-col items-center justify-center py-10">
+    <div className="relative w-full flex flex-col items-center justify-center py-10 bg-white">
       {/* Text section (kept lower z) */}
       <HomContactText />
 
