@@ -4,6 +4,7 @@ import OceanFreigh from './OceanFreigh';
 import Transporte from './Transporte';
 import Form from './Form';
 import Conocenos from './Conocenos';
+import Packaging from './Packaging';
 
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
             <Transporte/>
             <Form/>
             <Conocenos/>
+            <Packaging/>
         </div>
     );
 };

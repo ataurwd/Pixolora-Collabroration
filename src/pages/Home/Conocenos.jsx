@@ -1,78 +1,83 @@
-// Updated Conocenos component with all left/right padding and margins removed
+// Conocenos.jsx
+import React from "react";
+import { motion } from "framer-motion";
+import { Mail, ArrowLeft, ArrowRight } from "lucide-react";
 
-"use client"
+/* --- Custom SVG icons (kept from your earlier code) --- */
+const LogisticsIcon = () => (
+  <svg className="w-12 h-12" viewBox="0 0 60 60" fill="none">
+    <circle cx="30" cy="30" r="28" fill="#10b981" opacity="0.1" />
+    <circle cx="30" cy="30" r="18" fill="#10b981" />
+    <path d="M25 25L30 30L35 25" stroke="white" strokeWidth="3" strokeLinecap="round" />
+    <path d="M20 35H40" stroke="white" strokeWidth="3" strokeLinecap="round" />
+    <circle cx="30" cy="35" r="8" fill="white" />
+    <circle cx="30" cy="35" r="4" fill="#10b981" />
+  </svg>
+);
 
-import { ChevronLeft, ChevronRight, Mail, Package, Globe, MapPinned } from "lucide-react"
-import { useState } from "react"
-import { motion } from "framer-motion"
+const DeliveryIcon = () => (
+  <svg className="w-12 h-12" viewBox="0 0 60 60" fill="none">
+    <circle cx="30" cy="30" r="28" fill="#f59e0b" opacity="0.1" />
+    <path d="M15 25H45L40 40H20L15 25Z" fill="#fbbf24" />
+    <path d="M22 40H38" stroke="#92400e" strokeWidth="3" />
+    <circle cx="25" cy="45" r="5" fill="#92400e" />
+    <circle cx="35" cy="45" r="5" fill="#92400e" />
+  </svg>
+);
 
-const Conocenos = () => {
-  const [activeIndex, setActiveIndex] = useState(0)
+const TrackingIcon = () => (
+  <svg className="w-12 h-12" viewBox="0 0 60 60" fill="none">
+    <circle cx="30" cy="30" r="28" fill="#ef4444" opacity="0.1" />
+    <circle cx="30" cy="30" r="20" fill="#ef4444" />
+    <circle cx="30" cy="30" r="10" fill="white" />
+    <circle cx="30" cy="30" r="5" fill="#ef4444" />
+    <path d="M30 15L30 25" stroke="white" strokeWidth="3" strokeLinecap="round" />
+  </svg>
+);
 
-  const features = [
-    {
-      title: "Complete Logistics System",
-      icon: <Package className="w-12 h-12" />,
-      color: "from-emerald-500 to-teal-600",
-    },
-    {
-      title: "Shipping All Over the World",
-      icon: <Globe className="w-12 h-12" />,
-      color: "from-blue-500 to-cyan-600",
-    },
-    {
-      title: "Online Product Tracking",
-      icon: <MapPinned className="w-12 h-12" />,
-      color: "from-purple-500 to-pink-600",
-    },
-  ]
-
-  const nextSlide = () => setActiveIndex((prev) => (prev + 1) % features.length)
-  const prevSlide = () => setActiveIndex((prev) => (prev - 1 + features.length) % features.length)
-
+export default function Conocenos() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-sky-50 py-20">
-      <div className="w-full mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-
-          {/* Left: Skewed Image + Floating Email Card */}
+    <section className="bg-gradient-to-b from-blue-50 to-white py-20 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* LEFT: Image + Floating Email Button */}
           <motion.div
             initial={{ opacity: 0, x: -80 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative flex justify-center lg:justify-end"
+            className="relative"
           >
-            <div className="relative">
-              {/* Main Image with Skew Effect */}
-              <div className="overflow-hidden rounded-2xl shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-700">
-                <img
-                  src="https://i.ibb.co.com/KpR0BHq9/imgi-27-cta1.webp"
-                  alt="Airplane and truck logistics"
-                  className="w-full max-w-lg h-auto object-cover rounded-2xl"
-                />
-              </div>
-
-              {/* Floating Email Card */}
-              <motion.div
-                initial={{ y: 50, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5, duration: 0.7 }}
-                className="absolute -bottom-8 -left-8 md:left-auto md:-right-8 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white rounded-2xl p-5 shadow-2xl flex items-center gap-4 max-w-xs"
-              >
-                <div className="bg-white/20 p-3 rounded-full">
-                  <Mail className="w-7 h-7" />
-                </div>
-                <div>
-                  <p className="text-xs opacity-90">Envíanos un correo electrónico</p>
-                  <p className="font-bold text-lg">infotech@gmail.com</p>
-                </div>
-              </motion.div>
+            {/* Image: using uploaded file path */}
+            <div
+              className="overflow-hidden rounded-xl shadow-2xl"
+              style={{ clipPath: "polygon(6% 0, 100% 0, 100% 100%, 0% 100%, 0% 12%)" }}
+            >
+              <img
+                src="https://themexriver.com/wp/cargozen/wp-content/uploads/2025/04/cta1.webp"
+                alt="Airplane and truck logistics"
+                className="w-full h-[520px] object-cover"
+              />
             </div>
+
+            {/* Floating Email CTA */}
+            <motion.a
+              href="mailto:infotech@gmail.com"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.25, duration: 0.6 }}
+              className="absolute left-1/2 -translate-x-1/2 bottom-8 bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-10 rounded-full flex items-center gap-4 shadow-2xl transition-transform hover:scale-105 whitespace-nowrap"
+            >
+              <Mail className="w-6 h-6" />
+              <div className="text-left leading-tight">
+                <span className="block text-sm opacity-90">Envíanos un correo electrónico</span>
+                <span className="block text-base md:text-lg font-bold">infotech@gmail.com</span>
+              </div>
+            </motion.a>
           </motion.div>
 
-          {/* Right: Content + Animated Carousel */}
+          {/* RIGHT: Text + Feature Cards */}
           <motion.div
             initial={{ opacity: 0, x: 80 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -80,119 +85,95 @@ const Conocenos = () => {
             transition={{ duration: 0.8 }}
             className="space-y-10"
           >
-            {/* Header */}
-            <div className="space-y-4">
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
+            <p className="text-green-600 font-bold text-lg tracking-wider">Conócenos</p>
+
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-orange-500 leading-tight">
+              Soluciones Integrales
+              <br />
+              de Carga y
+              <br />
+              Almacenamiento
+            </h1>
+
+            {/* Feature Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+              {/* Card 1 */}
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                className="text-emerald-600 font-bold text-sm tracking-widest uppercase"
+                transition={{ delay: 0.2, duration: 0.6 }}
+                className="relative group"
               >
-                Conócenos
-              </motion.p>
-
-              <h2 className="text-5xl md:text-6xl font-black leading-tight">
-                <motion.span
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: 0.3 }}
-                  className="block bg-gradient-to-r from-amber-500 to-orange-600 bg-clip-text text-transparent"
-                >
-                  Soluciones Integrales
-                </motion.span>
-                <motion.span
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                  className="block bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent"
-                >
-                  de Carga y
-                </motion.span>
-                <motion.span
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: 0.7 }}
-                  className="block bg-gradient-to-r from-amber-600 to-yellow-500 bg-clip-text text-transparent"
-                >
-                  Almacenamiento
-                </motion.span>
-              </h2>
-            </div>
-
-            {/* Interactive Carousel */}
-            <div className="relative">
-              <div className="flex items-center gap-6">
-                {/* Prev Button */}
-                <button
-                  onClick={prevSlide}
-                  className="hidden md:block z-10 p-4 bg-white rounded-full shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300"
-                  aria-label="Previous"
-                >
-                  <ChevronLeft className="w-7 h-7 text-amber-600" />
-                </button>
-
-                {/* Cards */}
-                <div className="flex gap-8 overflow-hidden">
-                  {features.map((feature, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{
-                        opacity: activeIndex === index ? 1 : 0.6,
-                        scale: activeIndex === index ? 1.05 : 0.95,
-                        x: -activeIndex * 110 + "%",
-                      }}
-                      transition={{ duration: 0.6, ease: "easeOut" }}
-                      className="flex-shrink-0 w-64"
-                      onClick={() => setActiveIndex(index)}
-                    >
-                      <div
-                        className={`h-full bg-white/80 backdrop-blur-lg rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer border-2 ${
-                          activeIndex === index ? "border-amber-500" : "border-transparent"
-                        }`}
-                      >
-                        <div
-                          className={`w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br ${feature.color} p-4 flex items-center justify-center text-white shadow-xl`}
-                        >
-                          {feature.icon}
-                        </div>
-                        <h3 className="text-xl font-bold text-gray-800 text-center leading-tight">
-                          {feature.title}
-                        </h3>
-                      </div>
-                    </motion.div>
-                  ))}
+                <div className="absolute -left-6 top-1/2 -translate-y-1/2">
+                  <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center shadow-lg">
+                    <ArrowLeft className="w-6 h-6 text-white" />
+                  </div>
                 </div>
 
-                {/* Next Button */}
-                <button
-                  onClick={nextSlide}
-                  className="hidden md:block z-10 p-4 bg-white rounded-full shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300"
-                  aria-label="Next"
-                >
-                  <ChevronRight className="w-7 h-7 text-amber-600" />
-                </button>
-              </div>
+                <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition text-center">
+                  <LogisticsIcon />
+                  <p className="mt-6 font-bold text-gray-800 text-lg leading-tight">
+                    Complete
+                    <br />
+                    Logistics System
+                  </p>
+                </div>
+              </motion.div>
 
-              {/* Mobile Dots */}
-              <div className="flex justify-center gap-3 mt-8 md:hidden">
-                {features.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setActiveIndex(i)}
-                    className={`transition-all duration-300 ${
-                      activeIndex === i
-                        ? "w-10 h-3 bg-amber-500 rounded-full"
-                        : "w-3 h-3 bg-gray-300 rounded-full"
-                    }`}
-                  />
-                ))}
-              </div>
+              {/* Card 2 */}
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35, duration: 0.6 }}
+                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition text-center"
+              >
+                <DeliveryIcon />
+                <p className="mt-6 font-bold text-gray-800 text-lg leading-tight">
+                  Shipping All Over
+                  <br />
+                  the World
+                </p>
+              </motion.div>
+
+              {/* Card 3 */}
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                className="relative group"
+              >
+                <div className="absolute -right-6 top-1/2 -translate-y-1/2">
+                  <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center shadow-lg">
+                    <ArrowRight className="w-6 h-6 text-white" />
+                  </div>
+                </div>
+
+                <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition text-center">
+                  <TrackingIcon />
+                  <p className="mt-6 font-bold text-gray-800 text-lg leading-tight">
+                    Online Product
+                    <br />
+                    Tracking
+                  </p>
+                </div>
+              </motion.div>
             </div>
+
+            {/* CTA under features (optional) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.7, duration: 0.6 }}
+            >
+              <button className="inline-flex items-center gap-3 px-6 py-3 bg-orange-500 text-white rounded-lg font-semibold shadow hover:scale-105 transition-transform duration-150">
+                Learn More
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </motion.div>
           </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }
-
-export default Conocenos
