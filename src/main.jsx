@@ -5,6 +5,9 @@ import Route from './routes/Route.jsx'
 import { ThemeProvider } from '@mui/material/styles'
 import theme from './theme.js'
 import AuthContext from './context/AuthContext.jsx'
+import "swiper/css";
+import "swiper/css/navigation";
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
