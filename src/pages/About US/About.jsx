@@ -923,6 +923,9 @@ return (
     alt="Truck"
   />
 </section>   
+
+
+
 </div>
 );
 };
