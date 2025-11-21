@@ -5,6 +5,8 @@ import { FaPlane, FaBoxOpen } from "react-icons/fa";
 const About = () => {
   const [clients, setClients] = useState(0);
   const [countries, setCountries] = useState(0);
+  const [showVideo, setShowVideo] = useState(false);
+  const youtubeURL = "https://www.youtube.com/embed/VIDEO_ID_HERE";
 
   // Animated counters with Framer Motion (smoother & easier to control)
   useEffect(() => {
@@ -25,6 +27,8 @@ const About = () => {
       clearInterval(countryInterval);
     };
   }, []);
+
+  
 
   return (
     <div className="w-full overflow-x-hidden">
@@ -217,7 +221,338 @@ const About = () => {
           </motion.div>
         </div>
       </motion.section>
+
+     {/* ======================= PRICING SECTION ======================== */}
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="py-24 bg-gradient-to-b from-cyan-50 to-blue-50"
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+
+          <div className="text-center mb-16">
+            <p className="text-teal-700 font-semibold text-lg mb-4">Planes de Precios</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-orange-500 max-w-4xl mx-auto leading-tight">
+              Precios flexibles y transparentes diseñados para adaptarse a tus necesidades logísticas.
+            </h2>
+          </div>
+
+          {/* Pricing Cards */}
+          <div className="grid md:grid-cols-3 gap-8">
+
+            {/* Basic Plan */}
+            <motion.div
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all"
+            >
+              <div className="bg-gradient-to-r from-green-700 to-green-800 text-white p-6 text-center">
+                <h3 className="text-2xl font-bold">Transporte Básico</h3>
+                <p className="text-sm mt-2 opacity-90">
+                  Servicio esencial para envíos pequeños y locales
+                </p>
+              </div>
+              <div className="p-8">
+                <div className="text-center mb-8">
+                  <span className="text-orange-500 text-2xl font-bold">$</span>
+                  <span className="text-orange-500 text-6xl font-black">39</span>
+                  <span className="text-orange-500 text-2xl font-bold">.99</span>
+                  <p className="text-gray-600 font-semibold mt-2">Mensual</p>
+                </div>
+
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-center gap-3 text-gray-700">
+                    <span className="text-green-600 text-xl">✓</span>
+                    Rastreo básico de envíos
+                  </li>
+                  <li className="flex items-center gap-3 text-gray-700">
+                    <span className="text-green-600 text-xl">✓</span>
+                    Entregas locales programadas
+                  </li>
+                  <li className="flex items-center gap-3 text-gray-700">
+                    <span className="text-green-600 text-xl">✓</span>
+                    Soporte por correo electrónico
+                  </li>
+                </ul>
+
+                <button className="w-full py-3 bg-green-700 hover:bg-green-800 text-white font-bold rounded-full">
+                  Click Here
+                </button>
+                <p className="text-center text-gray-400 text-sm mt-4">Este es un elemento de texto</p>
+              </div>
+            </motion.div>
+
+            {/* Premium Plan */}
+            <motion.div
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.15 }}
+              className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all relative"
+            >
+              <div className="absolute top-4 right-4 bg-green-500 text-white px-4 py-1 rounded-full text-sm font-bold rotate-12">
+                Popular
+              </div>
+
+              <div className="bg-gradient-to-r from-green-700 to-green-800 text-white p-6 text-center">
+                <h3 className="text-2xl font-bold">Transporte Premium</h3>
+                <p className="text-sm mt-2 opacity-90">
+                  Solución equilibrada para negocios con envíos frecuentes
+                </p>
+              </div>
+
+              <div className="p-8">
+                <div className="text-center mb-8">
+                  <span className="text-orange-500 text-2xl font-bold">$</span>
+                  <span className="text-orange-500 text-6xl font-black">39</span>
+                  <span className="text-orange-500 text-2xl font-bold">.99</span>
+                  <p className="text-gray-600 font-semibold mt-2">Monthly</p>
+                </div>
+
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-center gap-3 text-gray-700">
+                    <span className="text-green-600 text-xl">✓</span> List Item #1
+                  </li>
+                  <li className="flex items-center gap-3 text-gray-700">
+                    <span className="text-green-600 text-xl">✓</span> List Item #2
+                  </li>
+                  <li className="flex items-center gap-3 text-gray-700">
+                    <span className="text-green-600 text-xl">✓</span> List Item #3
+                  </li>
+                </ul>
+
+                <button className="w-full py-3 bg-green-700 hover:bg-green-800 text-white font-bold rounded-full">
+                  Click Here
+                </button>
+
+                <p className="text-center text-gray-400 text-sm mt-4">Este es un elemento de texto</p>
+              </div>
+            </motion.div>
+
+            {/* Standard Plan */}
+            <motion.div
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all"
+            >
+              <div className="bg-gradient-to-r from-green-700 to-green-800 text-white p-6 text-center">
+                <h3 className="text-2xl font-bold">Transporte Estándar</h3>
+                <p className="text-sm mt-2 opacity-90">
+                  Solución equilibrada para negocios con envíos frecuentes
+                </p>
+              </div>
+
+              <div className="p-8">
+                <div className="text-center mb-8">
+                  <span className="text-orange-500 text-2xl font-bold">$</span>
+                  <span className="text-orange-500 text-6xl font-black">39</span>
+                  <span className="text-orange-500 text-2xl font-bold">.99</span>
+                  <p className="text-gray-600 font-semibold mt-2">Mensual</p>
+                </div>
+
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-center gap-3 text-gray-700">
+                    <span className="text-green-600 text-xl">✓</span>
+                    Rastreo avanzado en tiempo real
+                  </li>
+                  <li className="flex items-center gap-3 text-gray-700">
+                    <span className="text-green-600 text-xl">✓</span>
+                    Gestión de inventario
+                  </li>
+                  <li className="flex items-center gap-3 text-gray-700">
+                    <span className="text-green-600 text-xl">✓</span>
+                    Atención al cliente 24/7
+                  </li>
+                </ul>
+
+                <button className="w-full py-3 bg-green-700 hover:bg-green-800 text-white font-bold rounded-full">
+                  Click Here
+                </button>
+
+                <p className="text-center text-gray-400 text-sm mt-4">Este es un elemento de texto</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </motion.section>
+
+          
+
+
+
+
+
+<motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.9 }}
+        className="bg-[#D4EAF2] relative overflow-hidden"
+      >
+        <div className="mt-8 max-w-7xl mx-auto text-center px-6 relative">
+          <p className="text-green-900 font-semibold tracking-wide text-sm md:text-base">
+            Transporte y Logística Seguros
+          </p>
+
+          <h2 className="text-[34px] md:text-[48px] font-extrabold text-orange-500 leading-tight mt-4">
+            Soluciones de Carga Eficientes <br /> en Cada Paso del Camino
+          </h2>
+
+          <div className="relative mt-24 flex justify-center gap-24 md:gap-40 opacity-30 pointer-events-none select-none">
+            <span className="text-[150px] md:text-[220px] font-black text-[#AFC8D2] leading-none">01</span>
+            <span className="text-[150px] md:text-[220px] font-black text-[#AFC8D2] leading-none">02</span>
+            <span className="text-[150px] md:text-[220px] font-black text-[#AFC8D2] leading-none">03</span>
+          </div>
+
+          <div className="relative -mt-12 w-full flex items-center justify-center">
+            <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-[#C7D9DF]"></div>
+
+            <div className="flex items-center justify-center gap-14 md:gap-24 relative">
+              <p className="text-green-900 font-semibold text-lg  px-2">
+                Percel Register
+              </p>
+
+              <motion.div initial={{ x: -20, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M2 12H22M22 12L17 7M22 12L17 17" stroke="#FF0000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </motion.div>
+
+              <p className="text-green-900 font-semibold text-lg  px-2">
+                Percel In- Transit
+              </p>
+
+              <motion.div initial={{ x: -20, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 0.6, delay: 0.15 }} viewport={{ once: true }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M2 12H22M22 12L17 7M22 12L17 17" stroke="#FF0000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </motion.div>
+
+              <p className="text-green-900 font-semibold text-lg  px-2">
+                Percel Delivery
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* CSS for marquee */}
+        <style>{`
+          @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-marquee {
+            animation: marquee 18s linear infinite;
+          }
+          .animate-marquee:hover {
+            animation-play-state: paused;
+          }
+          .marquee-content { display: inline-flex; align-items: center; }
+        `}</style>
+
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9 }}
+          className="py-32 bg-[#D4EAF2] relative overflow-hidden"
+        >
+          <div className="overflow-hidden w-full">
+            <div className="marquee-content flex items-center gap-16 md:gap-32 animate-marquee whitespace-nowrap">
+
+              {/* LAND EXPRESS */}
+              <h1 className="text-[170px] md:text-[150px] font-extrabold text-green-900 leading-none shrink-0">
+                LAND EXPRESS
+              </h1>
+
+              {/* Play Button #1 */}
+              <div className="relative w-24 h-24 md:w-40 md:h-40 shrink-0 rounded-full overflow-hidden border-4 border-white bg-gray-200 shadow-xl flex items-center justify-center">
+                <img src="/mnt/data/62e3cf93-6a34-4ffc-8374-75c762b17721.png" className="absolute inset-0 w-full h-full object-cover" />
+
+                <div
+                  onClick={() => setShowVideo(true)}
+                  className="relative z-20 w-10 h-10 md:w-14 md:h-14 bg-white/80 rounded-full flex items-center justify-center shadow-lg cursor-pointer"
+                >
+                  <svg width="28" height="28" fill="#0B6E3F">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+
+                <div className="absolute inset-0 bg-black/10 z-10"></div>
+              </div>
+
+              {/* OCEAN FREIGHT */}
+              <h1 className="text-[170px] md:text-[150px] font-extrabold text-transparent leading-none shrink-0"
+                style={{ WebkitTextStroke: "2px #AFC8D2" }}
+              >
+                OCEAN FREIGHT
+              </h1>
+
+              {/* Play Button #2 */}
+              <div className="relative w-24 h-24 md:w-40 md:h-40 shrink-0 rounded-full overflow-hidden border-4 border-white bg-gray-200 shadow-xl flex items-center justify-center">
+                <img src="/mnt/data/62e3cf93-6a34-4ffc-8374-75c762b17721.png" className="absolute inset-0 w-full h-full object-cover" />
+
+                <div
+                  onClick={() => setShowVideo(true)}
+                  className="relative z-20 w-10 h-10 md:w-14 md:h-14 bg-white/80 rounded-full flex items-center justify-center shadow-lg cursor-pointer"
+                >
+                  <svg width="28" height="28" fill="#0B6E3F">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+
+                <div className="absolute inset-0 bg-black/10 z-10"></div>
+              </div>
+
+            </div>
+          </div>
+        </motion.section>
+      </motion.section>
+
+      {/* ------------------------------------------------------- */}
+      {/*                    YOUTUBE POPUP MODAL                  */}
+      {/* ------------------------------------------------------- */}
+      {showVideo && (
+        <div
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[9999]"
+          onClick={() => setShowVideo(false)}
+        >
+          <div
+            className="relative bg-black rounded-xl overflow-hidden shadow-2xl w-[90%] max-w-3xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setShowVideo(false)}
+              className="absolute top-2 right-2 text-white text-3xl font-bold bg-black/40 rounded-full px-3 hover:bg-black"
+            >
+              ×
+            </button>
+
+            {/* YouTube video */}
+            <iframe
+              className="w-full h-[400px] md:h-[500px]"
+              src={youtubeURL}
+              title="YouTube video"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      )}
     </div>
+
+
+    
+
+
   );
 };
 
