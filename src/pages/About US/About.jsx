@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import ContactTruck from "./ContactTruck";
 
 const About = () => {
 const [clients, setClients] = useState(0);
@@ -844,85 +845,9 @@ return (
     </motion.section>
    
     {/* ======================= CONTACT SECTION ======================== */}
+   {/* <ContactTruck/> */}
 
-
-  <section className="bg-[#D9F2FC] w-full">
-  <div className="grid grid-cols-1 lg:grid-cols-2 relative">
-
-    {/* LEFT SIDE */}
-    <div className="p-12 lg:pt-20">
-      <p className="text-sm font-semibold text-green-900">
-        Safe Transportation & Logistics
-      </p>
-
-      <h1 className="text-4xl md:text-5xl font-bold text-orange-500 mt-4 leading-tight">
-        Let’s Create Something <br /> Amazing Together!
-      </h1>
-    </div>
-
-    {/* RIGHT SIDE */}
-    <div className="relative flex justify-end">
-
-      {/* ORANGE TOP BAR */}
-      <div className="absolute top-0 right-0 w-full lg:w-[75%] bg-[#F6841F] py-7 text-center text-white font-semibold shadow-md">
-        Let’s Create Something Amazing Together!
-
-        {/* Arrow */}
-        <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-[#F6841F] rotate-45"></div>
-      </div>
-
-      {/* GREEN CONTACT CARD */}
-      <div className="bg-[#0B5C33] text-white p-10 pt-24 lg:w-[75%] min-h-[480px] shadow-xl">
-
-        {/* Phone */}
-        <div className="flex items-center gap-4 mb-10">
-          <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
-            <i className="fa-solid fa-phone text-xl"></i>
-          </div>
-          <div>
-            <p className="text-sm text-white/80">Call For Inquiry</p>
-            <p className="text-lg font-bold">+236 (456) 896 22</p>
-          </div>
-        </div>
-
-        {/* Email */}
-        <div className="flex items-center gap-4 mb-10">
-          <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
-            <i className="fa-solid fa-envelope text-xl"></i>
-          </div>
-          <div>
-            <p className="text-sm text-white/80">Send Us Email</p>
-            <p className="text-lg font-bold">infotech@gmail.com</p>
-          </div>
-        </div>
-
-        {/* WORLD MAP BOX */}
-        <div className="relative mt-12 border border-white/20 rounded-xl p-6">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg"
-            alt="world map"
-            className="w-full opacity-90"
-          />
-
-          {/* PIN */}
-          <span className="absolute top-[47%] left-[55%] w-4 h-4 bg-green-300 rounded-full border-2 border-white animate-pulse"></span>
-
-          {/* LABEL */}
-          <p className="absolute top-[51%] left-[60%] text-sm font-semibold">
-            Denmark
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  {/* TRUCK IMAGE (your uploaded image) */}
-  <img
-    src="https://i.ibb.co/0jfGbqfb/map-bg.webp"
-    className="w-full h-[500px] object-cover mt-8"
-    alt="Truck"
-  />
-</section>   
+   
 
 
 

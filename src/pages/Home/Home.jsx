@@ -8,6 +8,7 @@ import Packaging from './Packaging';
 import Testimonials from './testimonials';
 import HomContactText from './HomContactText';
 import CompleteFreight from './CompleteFreight';
+import SLiderMarque from './SLiderMarque';
 
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
             <Hero/>
             <OceanFreigh/>
             <Transporte/>
+            <SLiderMarque/>
             <Form/>
             <Conocenos/>
             <Packaging/>
