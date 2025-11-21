@@ -3,16 +3,14 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// Put your uploaded image path here (or use a public URL)
-const backgroundImage = "/mnt/data/19dd864b-1111-47f3-8070-d4b0b39a2e91.png";
-// If you uploaded it somewhere else, replace with:
-// const backgroundImage = "https://your-domain.com/path/to/image.png";
+const backgroundImage =
+  "/mnt/data/19dd864b-1111-47f3-8070-d4b0b39a2e91.png";
 
 const slides = [
   {
     id: 1,
     text: "Logística",
-    icons: ["📦", "✈️"], // you can replace with your own SVG/icons later
+    icons: ["📦", "✈️"],
   },
   {
     id: 2,
@@ -41,35 +39,38 @@ export default function HeroCarousel() {
     speed: 800,
     slidesToShow: 1,
     slidesToScroll: 1,
-    pauseOnHover: true,
+    pauseOnHover: false,
     fade: false,
     cssEase: "cubic-bezier(0.2, 0.8, 0.2, 1)",
   };
 
   return (
-    <section className="w-full bg-[#eef6fb] py-12 ">
-      {/* Full-width wrapper (bleeds to the edges) */}
-      <div className="relative  w-[100%] ">
+    <section className="w-full bg-[#eef6fb] py-12">
+      {/* FULL WIDTH (edge to edge) */}
+      <div className="relative w-full max-w-[100%] overflow-hidden">
+
         <Slider {...settings}>
           {slides.map((slide) => (
             <div key={slide.id}>
-              <div className="relative flex min-h-40 items-center justify-center py-8 md:min-h-56 md:py-12">
-                {/* Very subtle background image */}
+              <div className="relative flex min-h-52 items-center justify-center py-8 md:min-h-72 lg:min-h-96">
+
+                {/* Background Image */}
                 <div
-                  className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-5 grayscale"
+                  className="absolute inset-0 bg-cover bg-center opacity-10 grayscale"
                   style={{
                     backgroundImage: `url(${backgroundImage})`,
                   }}
-                  aria-hidden="true"
                 />
 
-                {/* Main text + icons */}
-                <h2 className="relative z-10 flex flex-wrap items-center justify-center gap-6 text-center text-5xl font-extrabold tracking-tighter text-[#0b6b3d] md:gap-10 md:text-7xl lg:text-8xl">
-                  {/* Left part (always visible) */}
-                  <span className="whitespace-nowrap">Logística</span>
+                {/* Full content side-by-side */}
+                <div className="relative z-10 flex items-center justify-center gap-6 text-center">
+                  {/* Left Text */}
+                  <span className="text-5xl font-extrabold tracking-tight text-[#0b6b3d] md:text-7xl lg:text-8xl">
+                    Logística
+                  </span>
 
-                  {/* Flying icons */}
-                  <span className="flex items-center gap-4 md:gap-8">
+                  {/* Icons */}
+                  <div className="flex items-center gap-4 md:gap-6">
                     {slide.icons.map((icon, i) => (
                       <span
                         key={i}
@@ -79,18 +80,20 @@ export default function HeroCarousel() {
                         {icon}
                       </span>
                     ))}
-                  </span>
+                  </div>
 
-                  {/* Changing word */}
-                  <span className="whitespace-nowrap">{slide.text}</span>
-                </h2>
+                  {/* Right changing text */}
+                  <span className="text-5xl font-extrabold tracking-tight text-[#0b6b3d] md:text-7xl lg:text-8xl">
+                    {slide.text}
+                  </span>
+                </div>
               </div>
             </div>
           ))}
         </Slider>
       </div>
 
-      {/* Optional tiny floating animation for the icons */}
+      {/* Floating Animation */}
       <style jsx>{`
         @keyframes float {
           0%,

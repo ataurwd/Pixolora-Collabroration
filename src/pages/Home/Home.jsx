@@ -5,6 +5,7 @@ import Transporte from './Transporte';
 import Form from './Form';
 import Conocenos from './Conocenos';
 import Packaging from './Packaging';
+import Testimonials from './testimonials';
 
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
             <Form/>
             <Conocenos/>
             <Packaging/>
+            <Testimonials/>
         </div>
     );
 };
